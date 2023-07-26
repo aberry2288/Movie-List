@@ -65,18 +65,7 @@
         <button class="btn btn-primary" onclick="displayMovies()">Get Movies</button>
         <h1 class="text-center mt-5 display-3">Trending Movies</h1>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 justify-content-center justify-content-xl-start" id="movie-list">
-            <div class="col">
-                <div class="card">
-                    <img class="card-img-top" alt="Movie Poster" src="/img/Barbie Poster.jpg">
-                    <div class="card-body border-top bg-light">
-                        <h5>Barbie</h5>
-                        <p>Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world
-                            of Barbie Land. However, when they get a chance to go to the real world, they soon discover
-                            the joys and perils of living among humans.</p>
-                    </div>
-                    <div class="card-footer text-end"><a href="#" class="btn btn-primary">More Info</a></div>
-                </div>
-            </div>
+           <!--Movie Cards go here-->
         </div>
     </main>
 
@@ -98,6 +87,20 @@
             </div>
         </div>
     </footer>
+
+    <!--Movie Cards Template-->
+    <template id="movie-card-template">
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" alt="Movie Poster">
+                <div class="card-body border-top bg-light">
+                    <h5><!--Movie Title-->></h5>
+                    <p class="card-text"><!--Movie Description Goes Here-->></p>
+                </div>
+                <div class="card-footer text-end"><a href="#" class="btn btn-primary">More Info</a></div>
+            </div>
+        </div>
+    </template>
 
 
 

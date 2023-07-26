@@ -27,17 +27,21 @@ async function displayMovies() {
 
     const movieListDiv = document.getElementById('movie-list');
 
+    const moviePosterTemplate = document.getElementById('movie-card-template');
+
     let data = await getMovies();
 
     let movies = data.results; //movies is an array of objects
 
-    movies.forEach(movie => {        
+    movies.forEach(movie => { 
 
-        let paragraphTag = document.createElement('p');
+        let movieCard = moviePosterTemplate.content.cloneNode(true);
 
-        paragraphTag.innerText = movie.title;
+        let titleElement = movieCard.querySelector('.card-body > h5')
 
-        movieListDiv.appendChild(paragraphTag);
+        titleElement.textContent = movie.title;
+
+        movieListDiv.appendChild(movieCard);
     });
 
 }
