@@ -38,8 +38,14 @@ async function displayMovies() {
         let movieCard = moviePosterTemplate.content.cloneNode(true);
 
         let titleElement = movieCard.querySelector('.card-body > h5')
-
         titleElement.textContent = movie.title;
+
+        let movieParagraphElement = movieCard.querySelector('.card-text');
+        movieParagraphElement.textContent = movie.overview;
+
+        let movieImgElement = movieCard.querySelector('.card-img-top');
+        movieImgElement.setAttribute('src', `https://image.tmdb.org/t/p/w500${movie.poster_path}`);
+
 
         movieListDiv.appendChild(movieCard);
     });
