@@ -64,8 +64,9 @@
     <main class="container-xl py-3">
         <button class="btn btn-primary" onclick="displayMovies()">Get Movies</button>
         <h1 class="text-center mt-5 display-3">Trending Movies</h1>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 justify-content-center justify-content-xl-start" id="movie-list">
-           <!--Movie Cards go here-->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 justify-content-center justify-content-xl-start"
+            id="movie-list">
+            <!--Movie Cards go here-->
         </div>
     </main>
 
@@ -91,16 +92,43 @@
     <!--Movie Cards Template-->
     <template id="movie-card-template">
         <div class="col">
-            <div class="card">
+            <div class="card h-100">
                 <img class="card-img-top" alt="Movie Poster">
                 <div class="card-body border-top bg-light">
                     <h5><!--Movie Title-->></h5>
                     <p class="card-text"><!--Movie Description Goes Here-->></p>
                 </div>
-                <div class="card-footer text-end"><a href="#" class="btn btn-primary">More Info</a></div>
+                <div class="card-footer text-end">
+                    <button class="btn btn-primary" 
+                    data-bs-target="#movie-modal" 
+                    data-bs-toggle="modal" 
+                    onclick="showMovieDetails(this)">
+                        More Info
+                    </button>
+                </div>
             </div>
         </div>
     </template>
+
+
+    <!--Modals-->
+    <div class="modal" tabindex="-1" id="movie-modal">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="movie-modal-paragraph">Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

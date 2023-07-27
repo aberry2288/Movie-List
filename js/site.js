@@ -33,7 +33,7 @@ async function displayMovies() {
 
     let movies = data.results; //movies is an array of objects
 
-    movies.forEach(movie => { 
+    movies.forEach(movie => {
 
         let movieCard = moviePosterTemplate.content.cloneNode(true);
 
@@ -46,9 +46,61 @@ async function displayMovies() {
         let movieImgElement = movieCard.querySelector('.card-img-top');
         movieImgElement.setAttribute('src', `https://image.tmdb.org/t/p/w500${movie.poster_path}`);
 
+        let infoButton = movieCard.querySelector('button.btn');
+        infoButton.setAttribute('data-movieId', movie.id);
+
+     
 
         movieListDiv.appendChild(movieCard);
     });
+}
+
+async function getMovieDetails(movieId) {
+
+
+    try {
+
+        let response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}`, {
+            headers: {
+                'Authorization': `Bearer ${API_KEY}`
+            }
+        });
+
+        let data = await response.json();
+
+        return data;
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+}
+
+async function showMovieDetails(btn) {
+
+    let movieId = btn.getAttribute('data-movieID');
+
+    let movie = await getMovieDetails(movieId);
+
+ 
+
+    let modal = document.getElementById('movie-modal');
+
+
+    let modalTitle = modal.querySelector('.modal-title');
+    modalTitle.textContent = movie.title;
+
+    
+
+    let modalParagraph = document.getElementById('movie-modal-paragraph');
+    modalParagraph.textContent = movie.overview;
+
+
+
+
+
+
 
 }
 
