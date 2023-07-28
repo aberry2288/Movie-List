@@ -18,6 +18,9 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/site.css">
+
+    <!--Hovercard CSS-->
+    <link rel="stylesheet" href="/css/hovercards.css">
 </head>
 
 <body onload="displayMovies()">
@@ -62,7 +65,7 @@
     </header>
 
     <main class="container-xl py-3">
-        
+
         <h1 class="text-center mt-5 display-2">Trending Movies</h1>
         <hr>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 justify-content-center justify-content-xl-start"
@@ -93,17 +96,15 @@
     <!--Movie Cards Template-->
     <template id="movie-card-template">
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 icon-card">
                 <img class="card-img-top" alt="Movie Poster">
                 <div class="card-body border-top bg-light">
                     <h5><!--Movie Title-->></h5>
                     <p class="card-text"><!--Movie Description Goes Here-->></p>
                 </div>
                 <div class="card-footer text-end">
-                    <button class="btn btn-primary" 
-                    data-bs-target="#movie-modal" 
-                    data-bs-toggle="modal" 
-                    onclick="showMovieDetails(this)">
+                    <button class="btn btn-primary" data-bs-target="#movie-modal" data-bs-toggle="modal"
+                        onclick="showMovieDetails(this)">
                         More Info
                     </button>
                 </div>
@@ -125,7 +126,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    
+
                 </div>
             </div>
         </div>
