@@ -96,11 +96,5 @@ async function showMovieDetails(btn) {
     let modalParagraph = document.getElementById('movie-modal-paragraph');
     modalParagraph.textContent = movie.overview;
 
-
-
-
-
-
-
 }
 
